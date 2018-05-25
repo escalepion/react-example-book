@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 
 import logo from "../../logo.svg";
@@ -7,7 +7,7 @@ import "../../App.css";
 class IndexPage extends Component {
   render() {
     return (
-      <div className="container">
+      <Fragment>
         <p>
           You can see all examples that i faced while i was developing react
           applications. It s not just about react, this guide also contains es6,
@@ -17,7 +17,7 @@ class IndexPage extends Component {
         <p>
           <Link to="/state_change">State change</Link>
         </p>
-      </div>
+      </Fragment>
     );
   }
 }

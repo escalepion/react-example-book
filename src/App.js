@@ -13,8 +13,10 @@ class App extends Component {
       <Router>
         <div className="App">
           <Header/>
-          <Route exact path="/" component={IndexPage} />
-          <Route exact path="/state_change" component={StateChange} />
+          <div className="container">
+            <Route exact path="/" component={IndexPage} />
+            <Route exact path="/state_change" component={StateChange} />
+          </div>          
         </div>
       </Router>
     );
