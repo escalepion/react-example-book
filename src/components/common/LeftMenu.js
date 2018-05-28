@@ -1,9 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { History } from 'react-router-dom';
 
 const LeftMenu = () => {
+  console.log(History.location);
   return (
     <div>
-      left menu
+      <ul>
+        <li><Link to="/">Home</Link></li>        
+        <li><Link to="/state_change">State change</Link></li>        
+      </ul>
     </div>
   );
 }
