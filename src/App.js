@@ -7,6 +7,7 @@ import Header from './components/common/Header';
 import LeftMenu from './components/common/LeftMenu';
 import IndexPage from './components/indexPage/IndexPage';
 import StateChange from './components/stateChange/StateChange';
+import PostComment from './components/postComment/';
 
 class App extends Component {
   render() {
@@ -16,12 +17,13 @@ class App extends Component {
           <Header/>
           <div className="container">
             <div className="row">
-              <div className="col-12 col-md-4">
+              <div className="col-12 col-md-3">
                 <LeftMenu />
               </div>
-              <div className="col-12 col-md-8">
+              <div className="col-12 col-md-9">
                 <Route exact path="/" component={IndexPage} />
                 <Route exact path="/state_change" component={StateChange} />
+                <Route exact path="/post_comment" component={PostComment} />
               </div>
             </div>            
           </div>          

@@ -9,6 +9,7 @@ class LeftMenu extends Component {
         <ul className="leftMenu">
           <li className={pathname === '/' ? 'active' : undefined}><Link to="/">Home</Link></li>        
           <li className={pathname === '/state_change' ? 'active' : undefined}><Link to="/state_change">State change</Link></li>        
+          <li className={pathname === '/post_comment' ? 'active' : undefined}><Link to="/post_comment">Post Comment</Link></li>        
         </ul>
       </Fragment>
     );
