@@ -1,0 +1,32 @@
+.leftMenu {
+  background-color: $dark-bg-color;
+  padding: 0;
+
+  li{
+    cursor: pointer;
+    list-style: none;
+    padding: 1rem;
+
+    a {
+      color: #ffffff;
+      display: block;
+      line-height: 4rem;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    &:hover {
+      background-color: darken(blue, 15%);
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $smoke-white;
+    }
+
+    &.active {
+      background-color: blue;
+    }
+  }
+}

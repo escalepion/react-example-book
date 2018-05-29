@@ -7,3 +7,23 @@ body {
 
 a:focus, a:active {
   outline: none; }
+
+.leftMenu {
+  background-color: #414141;
+  padding: 0; }
+  .leftMenu li {
+    cursor: pointer;
+    list-style: none;
+    padding: 1rem; }
+    .leftMenu li a {
+      color: #ffffff;
+      display: block;
+      line-height: 4rem; }
+      .leftMenu li a:hover {
+        text-decoration: none; }
+    .leftMenu li:hover {
+      background-color: #0000b3; }
+    .leftMenu li:not(:last-child) {
+      border-bottom: 1px solid #d9d9d9; }
+    .leftMenu li.active {
+      background-color: blue; }

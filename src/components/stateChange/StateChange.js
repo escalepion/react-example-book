@@ -11,7 +11,7 @@ class StateChange extends Component {
       this.setState({ backgroundLight : !this.state.backgroundLight });
     }
     render() {
-      const { divLightStyle, divDarkStyle, containerDiv } = styles;
+      const { containerDiv } = styles;
         return (
             <div className="row">
               <div className="col-sm-4">

@@ -1,15 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component, Fragment } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
-const LeftMenu = () => {
-  return (
-    <div>
-      <ul>
-        <li><Link to="/">Home</Link></li>        
-        <li><Link to="/state_change">State change</Link></li>        
-      </ul>
-    </div>
-  );
+class LeftMenu extends Component {
+  render() {
+    const { pathname } = this.props.location;
+    return (
+      <Fragment>
+        <ul className="leftMenu">
+          <li className={pathname === '/' ? 'active' : undefined}><Link to="/">Home</Link></li>        
+          <li className={pathname === '/state_change' ? 'active' : undefined}><Link to="/state_change">State change</Link></li>        
+        </ul>
+      </Fragment>
+    );
+  }
 }
 
-export default LeftMenu;
+export default withRouter(props => <LeftMenu {...props}/>);
