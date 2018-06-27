@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 
 import MediaItem from './MediaItem';
-import { commentData } from './commentData';
 
 class Index extends Component {
   renderComments(data) {
@@ -18,7 +18,7 @@ class Index extends Component {
       <div className="row">
         <div className="col-12">
 
-          {this.renderComments(commentData)}
+          {this.renderComments(this.props.comments)}
 
         </div>
       </div>
@@ -26,4 +26,10 @@ class Index extends Component {
   }
 }
 
-export default Index;
+const mapStateToProps = (state) => {
+  return { 
+    comments: state.postComments.commentData
+   };
+}
+
+export default connect(mapStateToProps, null)(Index);

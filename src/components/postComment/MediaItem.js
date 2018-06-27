@@ -1,8 +1,10 @@
-import React, { Component } from "react";
-import { commentData } from './commentData';
+import React, { Component, Fragment } from "react";
+import * as actions from '../../actions/comments';
 import { connect } from 'react-redux';
 
 const renderComments = (data, props) => {
+  //we pass props bcoz redux wont connect if we dont do that. So we pass mapStateToProps to children components.
+  //you can try that by removing to pass props and you can see that redux this.props.state (gloabal state) is undefined.
   return data.map((comment, index) => {
     return <MediaItem key={comment.id} {...props} comment={comment} isChild={true}/>
   });
@@ -25,11 +27,13 @@ class MediaItem extends Component {
   }
 
   renderChildren (commentId) {
-    return commentData.filter(comment => comment.parent === commentId);
+    return this.props.comments.filter(comment => comment.parent === commentId);
   }
 
-  onCommentTextSubmit(id) {
+  onCommentSubmit(id) {
     // yorumu commentDataya ekleyen action ve comment data reduceri yapılacak
+    this.props.addComment(this.state.commentTerm, this.props.comment.id);
+    this.setState({ isCommentable: false, commentTerm: '' });
   }
 
   onCommentTextChange(e) {
@@ -58,10 +62,16 @@ class MediaItem extends Component {
               <i className="fas fa-comments"></i>
             </span>
           </p>
-  
-          {this.state.isCommentable && <textarea name="" id="" cols="70" rows="10" value={this.state.commentTerm} onChange={this.onCommentTextChange.bind(this)}></textarea>}
-          
+            
           {this.renderChildren(comment.id).length > 0 && renderComments(this.renderChildren(comment.id), this.props)}
+  
+          {this.state.isCommentable && (
+            <Fragment>
+              <textarea name="" id="" cols="70" rows="10" value={this.state.commentTerm} onChange={this.onCommentTextChange.bind(this)}></textarea>
+              <button onClick={() => this.onCommentSubmit()} className="btn btn-primary">Gönder</button>
+            </Fragment>
+          )
+          }
           
         </div>
       </div>
@@ -70,7 +80,9 @@ class MediaItem extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { state };
+  return { 
+    comments: state.postComments.commentData
+   };
 }
 
-export default connect(mapStateToProps, null)(MediaItem);
+export default connect(mapStateToProps, actions)(MediaItem);
