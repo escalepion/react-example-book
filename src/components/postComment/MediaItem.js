@@ -60,11 +60,10 @@ class MediaItem extends Component {
           <p>{comment.text} 
             <span className="commentBox__comment-icon" onClick={this.onCommentButtonClick}>
               <i className="fas fa-comments"></i>
+              <i style={style.trashIcon} className="fas fa-trash"></i>
             </span>
           </p>
-            
-          {this.renderChildren(comment.id).length > 0 && renderComments(this.renderChildren(comment.id), this.props)}
-  
+
           {this.state.isCommentable && (
             <Fragment>
               <textarea name="" id="" cols="70" rows="10" value={this.state.commentTerm} onChange={this.onCommentTextChange.bind(this)}></textarea>
@@ -72,10 +71,17 @@ class MediaItem extends Component {
             </Fragment>
           )
           }
-          
+            
+          {this.renderChildren(comment.id).length > 0 && renderComments(this.renderChildren(comment.id), this.props)}          
         </div>
       </div>
     );
+  }
+}
+
+const style = {
+  trashIcon: {
+    marginLeft: '10px'
   }
 }
 

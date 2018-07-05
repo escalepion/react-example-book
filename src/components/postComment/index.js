@@ -3,7 +3,16 @@ import { connect } from 'react-redux';
 
 import MediaItem from './MediaItem';
 
+const obj = {
+  name: 'akif',
+  age : 22,
+  lastname: 'MUCURLU'
+}
+
 class Index extends Component {
+  renderObj({name, ...obj}) {
+    console.log(obj);
+  }
   renderComments(data) {
     //here, we just map parent comments. If this is not a parent comment, it will map in MediaItem component.
     //since all parent and child components have same template we chose this way. Please checkout MediaItem component.
@@ -14,6 +23,7 @@ class Index extends Component {
   }
 
   render() {
+    this.renderObj(obj);
     return (
       <div className="row">
         <div className="col-12">
