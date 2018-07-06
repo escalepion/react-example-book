@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import postComments from './post-comments-reducer';
+import postComments from './postComment/post-comments-reducer';
 
 const rootReducer = combineReducers({
   postComments

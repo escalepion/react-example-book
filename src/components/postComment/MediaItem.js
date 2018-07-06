@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import * as actions from '../../actions/comments';
+import * as actions from '../../actions/postComment/comments';
 import { connect } from 'react-redux';
 
 const renderComments = (data, props) => {
@@ -36,6 +36,10 @@ class MediaItem extends Component {
     this.setState({ isCommentable: false, commentTerm: '' });
   }
 
+  removeComment(id) {
+    this.props.removeComment(id);
+  }
+
   onCommentTextChange(e) {
     this.setState({ commentTerm: e.target.value });
   }
@@ -60,6 +64,8 @@ class MediaItem extends Component {
           <p>{comment.text} 
             <span className="commentBox__comment-icon" onClick={this.onCommentButtonClick}>
               <i className="fas fa-comments"></i>
+            </span>
+            <span onClick={() => this.removeComment(comment.id)}>
               <i style={style.trashIcon} className="fas fa-trash"></i>
             </span>
           </p>
@@ -67,7 +73,7 @@ class MediaItem extends Component {
           {this.state.isCommentable && (
             <Fragment>
               <textarea name="" id="" cols="70" rows="10" value={this.state.commentTerm} onChange={this.onCommentTextChange.bind(this)}></textarea>
-              <button onClick={() => this.onCommentSubmit()} className="btn btn-primary">Gönder</button>
+              <button onClick={() => this.onCommentSubmit()} className="btn btn-primary">Add</button>
             </Fragment>
           )
           }
@@ -81,6 +87,7 @@ class MediaItem extends Component {
 
 const style = {
   trashIcon: {
+    cursor: 'pointer',
     marginLeft: '10px'
   }
 }
