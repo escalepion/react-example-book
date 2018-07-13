@@ -13,7 +13,7 @@ class LeftMenu extends Component {
           <li><NavLink exact activeClassName={this.activeClassName} to='/'>Home</NavLink></li>
           <li><NavLink activeClassName={this.activeClassName} to='/state_change'>State Change</NavLink></li>       
           <li><NavLink activeClassName={this.activeClassName} to='/post_comment'>Add Infinity Nested Comments (Redux)</NavLink></li>               
-          <li><NavLink activeClassName={this.activeClassName} to='/change_list_order'>Change List Item Orders</NavLink></li>     
+          <li><NavLink activeClassName={this.activeClassName} to='/change-list-order'>Change List Item Orders</NavLink></li>     
         </ul>
       </Fragment>
     );

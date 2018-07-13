@@ -9,6 +9,7 @@ import IndexPage from './components/indexPage/IndexPage';
 import StateChange from './components/stateChange/StateChange';
 import PostComment from './components/postComment/';
 import ChangeListOrder from './components/changeListOrder';
+import ChangeListOrderApp from './components/changeListOrder/ChangeListOrder';
 
 class App extends Component {
   render() {
@@ -25,7 +26,8 @@ class App extends Component {
                 <Route exact path="/" component={IndexPage} />
                 <Route path="/state_change" component={StateChange} />
                 <Route exact path="/post_comment" component={PostComment} />
-                <Route path="/change_list_order" component={ChangeListOrder} />
+                <Route exact path="/change-list-order" component={ChangeListOrder} />
+                <Route exact path="/change-list-order/app" component={ChangeListOrderApp} />
               </div>
             </div>            
           </div>          

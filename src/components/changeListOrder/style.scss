@@ -1,0 +1,24 @@
+.changeListOrder {
+
+  .arrows {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    font-size: 2rem;
+    margin-right: .5rem;
+    padding: 1rem;
+
+    &:hover {
+      background-color: lighten( #333, 15%);
+    }
+  }
+}
+
+.changeListOrder__list-item {
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  justify-content: space-between;
+  align-items: center;
+}
