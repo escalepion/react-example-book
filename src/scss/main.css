@@ -13,20 +13,20 @@ a:focus, a:active {
   padding: 0; }
   .leftMenu li {
     cursor: pointer;
-    list-style: none;
-    padding: 1rem; }
+    list-style: none; }
     .leftMenu li a {
       color: #ffffff;
       display: block;
-      line-height: 4rem; }
+      line-height: 4rem;
+      padding: 1rem; }
+      .leftMenu li a.active {
+        background-color: blue; }
       .leftMenu li a:hover {
         text-decoration: none; }
     .leftMenu li:hover {
       background-color: #0000b3; }
     .leftMenu li:not(:last-child) {
       border-bottom: 1px solid #d9d9d9; }
-    .leftMenu li.active {
-      background-color: blue; }
 
 .commentBox__comment-icon {
   cursor: pointer;

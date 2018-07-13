@@ -5,12 +5,16 @@
   li{
     cursor: pointer;
     list-style: none;
-    padding: 1rem;
 
     a {
       color: #ffffff;
       display: block;
       line-height: 4rem;
+      padding: 1rem;
+
+      &.active {
+        background-color: blue;
+      }
 
       &:hover {
         text-decoration: none;
@@ -23,10 +27,6 @@
 
     &:not(:last-child) {
       border-bottom: 1px solid $smoke-white;
-    }
-
-    &.active {
-      background-color: blue;
     }
   }
 }

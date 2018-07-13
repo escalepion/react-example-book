@@ -1,15 +1,19 @@
 import React, { Component, Fragment } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 
 class LeftMenu extends Component {
+  constructor() {
+    super();
+    this.activeClassName = 'active';
+  }
   render() {
-    const { pathname } = this.props.location;
     return (
       <Fragment>
         <ul className="leftMenu">
-          <li className={pathname === '/' ? 'active' : undefined}><Link to="/">Home</Link></li>        
-          <li className={pathname === '/state_change' ? 'active' : undefined}><Link to="/state_change">State change</Link></li>        
-          <li className={pathname === '/post_comment' ? 'active' : undefined}><Link to="/post_comment">Add Infinity Nested Comments (Redux)</Link></li>        
+          <li><NavLink exact activeClassName={this.activeClassName} to='/'>Home</NavLink></li>
+          <li><NavLink activeClassName={this.activeClassName} to='/state_change'>State Change</NavLink></li>       
+          <li><NavLink activeClassName={this.activeClassName} to='/post_comment'>Add Infinity Nested Comments (Redux)</NavLink></li>               
+          <li><NavLink activeClassName={this.activeClassName} to='/change_list_order'>Change List Item Orders</NavLink></li>     
         </ul>
       </Fragment>
     );
